@@ -1,0 +1,173 @@
+{
+  "kind": "build_request",
+  "title": "SGS Solutions marketing website (computer sales & service)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive multi-page company website for “SGS Solutions” (computer sales and service) with clear navigation and polished marketing content in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Site has a consistent header navigation and footer on all pages.",
+        "All pages are responsive (mobile/tablet/desktop) and readable.",
+        "All user-facing copy is in English and references SGS Solutions consistently."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement core pages and sections suitable for a computer sales & service company: Home, Products, Services, About, and Contact pages. Home should include a hero section, value propositions, featured offerings, and a call-to-action to Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page includes: hero, 3–6 value props, featured Products/Services previews, and a prominent CTA button leading to Contact.",
+        "Products page lists at least 3 product categories (e.g., laptops, desktops, accessories) with short descriptions and placeholder items.",
+        "Services page lists at least 4 services (e.g., repairs, upgrades, diagnostics, maintenance) with clear descriptions.",
+        "About page includes a brief company story/mission and a “Why choose us” section.",
+        "Contact page includes contact info and a contact form."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a Contact form UI with validation (name, email, phone optional, subject, message) and submit success/error states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form validates required fields and email format before submission.",
+        "Submit button shows loading state while submitting.",
+        "On success, form clears and shows a success message; on failure, shows an error message."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create backend support to store contact form submissions in the canister, and expose methods to create and list submissions (listing should be restricted to authenticated users via Internet Identity).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend provides a public method to create a contact submission (with timestamp).",
+        "Backend provides an authenticated-only method to list submissions (newest-first).",
+        "Unauthenticated calls to list submissions are rejected with a clear error.",
+        "Data persists across canister upgrades (stable storage)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add a simple authenticated “Inbox” page in the frontend to view stored contact submissions (read-only). Access should require Internet Identity login.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When not logged in, the Inbox page prompts the user to sign in.",
+        "When logged in, the Inbox page displays a list of submissions with timestamp, name, email, subject, and message.",
+        "Inbox gracefully handles empty state and loading/error states."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Define and apply one coherent visual theme for SGS Solutions across the entire site (colors, typography, spacing, components) with a professional “computer services” feel (avoid blue & purple).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A single consistent theme is applied across pages (buttons, cards, headings, links).",
+        "Color palette does not rely on blue/purple as the primary brand colors.",
+        "Typography and spacing are consistent and readable."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add basic SEO and accessibility essentials: meaningful page titles/meta descriptions per page, semantic headings, keyboard navigability, and accessible form labels/errors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each page sets a distinct document title and meta description.",
+        "All form fields have associated labels and accessible error messages.",
+        "Site is usable via keyboard navigation and has sensible focus states.",
+        "Headings use a logical hierarchy (H1 then H2/H3)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Generate and include static brand images and illustrations for SGS Solutions (logo + simple marketing visuals), store them under frontend/public/assets/generated, and render them in the UI (e.g., header logo and Home hero).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website computer sales service company SGS Solutions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are present in frontend/public/assets/generated and referenced directly by the frontend.",
+        "Header displays the SGS Solutions logo.",
+        "Home hero includes a relevant illustration/visual."
+      ]
+    }
+  ],
+  "constraints": [
+    "Respect the single-actor backend architecture (all Motoko logic in backend/main.mo).",
+    "Do not edit files under frontend/src/components/ui or other immutable paths; compose UI using those components.",
+    "Do not introduce external databases or third-party auth providers (only Internet Identity for authentication)."
+  ],
+  "nonGoals": [
+    "E-commerce checkout, payments, shipping, and inventory management.",
+    "Real-time chat or live support features.",
+    "CMS/admin editing of product/service content (content can be static for initial version)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern minimalist logo for “SGS Solutions” in a tech/service style (sgs-logo.dim_512x512.png)",
+      "Wide hero illustration showing computer repair/sales theme, clean vector style (sgs-hero-illustration.dim_1600x900.png)",
+      "Set of 4 simple line icons representing service offerings (sgs-service-icons.dim_512x512.png)"
+    ],
+    "edits": []
+  }
+}

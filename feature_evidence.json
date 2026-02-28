@@ -1,0 +1,163 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-multi-page-company-website-for-sgs-solutions-computer-sales-and-service-with-clear-navigation-and-polished-marketing-content-in-english",
+      "featureTitle": "Create a responsive multi-page company website for “SGS Solutions” (computer sales and service) with clear navigation and polished marketing content in English.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Footer.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/components/layout/SiteLayout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-core-pages-and-sections-suitable-for-a-computer-sales-service-company-home-products-services-about-and-contact-pages-home-should-include-a-hero-section-value-propositions-featured-offerings-and-a-call-to-action-to-contact",
+      "featureTitle": "Implement core pages and sections suitable for a computer sales & service company: Home, Products, Services, About, and Contact pages. Home should include a hero section, value propositions, featured offerings, and a call-to-action to Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/ProductsPage.tsx",
+        "frontend/src/pages/ServicesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-contact-form-ui-with-validation-name-email-phone-optional-subject-message-and-submit-success-error-states",
+      "featureTitle": "Add a Contact form UI with validation (name, email, phone optional, subject, message) and submit success/error states.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/hooks/useSubmitContactForm.ts",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-simple-authenticated-inbox-page-in-the-frontend-to-view-stored-contact-submissions-read-only-access-should-require-internet-identity-login",
+      "featureTitle": "Add a simple authenticated “Inbox” page in the frontend to view stored contact submissions (read-only). Access should require Internet Identity login.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/auth/LoginButton.tsx",
+        "frontend/src/components/auth/ProfileSetupDialog.tsx",
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/hooks/useSubmissions.ts",
+        "frontend/src/pages/InboxPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-define-and-apply-one-coherent-visual-theme-for-sgs-solutions-across-the-entire-site-colors-typography-spacing-components-with-a-professional-computer-services-feel-avoid-blue-purple",
+      "featureTitle": "Define and apply one coherent visual theme for SGS Solutions across the entire site (colors, typography, spacing, components) with a professional “computer services” feel (avoid blue & purple).",
+      "files": [
+        "frontend/src/components/layout/SiteLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-basic-seo-and-accessibility-essentials-meaningful-page-titles-meta-descriptions-per-page-semantic-headings-keyboard-navigability-and-accessible-form-labels-errors",
+      "featureTitle": "Add basic SEO and accessibility essentials: meaningful page titles/meta descriptions per page, semantic headings, keyboard navigability, and accessible form labels/errors.",
+      "files": [
+        "frontend/src/components/contact/ContactForm.tsx",
+        "frontend/src/hooks/usePageMeta.ts",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/InboxPage.tsx",
+        "frontend/src/pages/ProductsPage.tsx",
+        "frontend/src/pages/ServicesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-and-include-static-brand-images-and-illustrations-for-sgs-solutions-logo-simple-marketing-visuals-store-them-under-frontend-public-assets-generated-and-render-them-in-the-ui-e-g-header-logo-and-home-hero",
+      "featureTitle": "Generate and include static brand images and illustrations for SGS Solutions (logo + simple marketing visuals), store them under frontend/public/assets/generated, and render them in the UI (e.g., header logo and Home hero).",
+      "files": [
+        "frontend/src/components/layout/Header.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

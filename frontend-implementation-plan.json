@@ -1,0 +1,267 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "SGS Solutions marketing website (computer sales & service) — frontend plan",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive multi-page marketing site for SGS Solutions with consistent navigation, footer, and polished English copy.",
+      "acceptanceCriteria": [
+        "Site has a consistent header navigation and footer on all pages.",
+        "All pages are responsive (mobile/tablet/desktop) and readable.",
+        "All user-facing copy is in English and references SGS Solutions consistently."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with client-side routing for all required pages and wrap routes with a shared layout so header/footer remain consistent across pages."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "create",
+          "description": "Implement a responsive layout with a reusable Header + Footer (SGS Solutions branding, nav links, and consistent spacing). Use shadcn-ui components (e.g., navigation, buttons, separators) to compose UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "create",
+          "description": "Add a responsive header with logo, navigation links (Home, Products, Services, About, Contact, Inbox), and a mobile menu affordance. Use shadcn-ui components to compose UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/Footer.tsx",
+          "operation": "create",
+          "description": "Add a site-wide footer with contact details, business hours (placeholder), and quick links; ensure responsive layout. Use shadcn-ui components to compose UI. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement core pages: Home, Products, Services, About, Contact, with required sections and CTAs.",
+      "acceptanceCriteria": [
+        "Home page includes: hero, 3–6 value props, featured Products/Services previews, and a prominent CTA button leading to Contact.",
+        "Products page lists at least 3 product categories (e.g., laptops, desktops, accessories) with short descriptions and placeholder items.",
+        "Services page lists at least 4 services (e.g., repairs, upgrades, diagnostics, maintenance) with clear descriptions.",
+        "About page includes a brief company story/mission and a “Why choose us” section.",
+        "Contact page includes contact info and a contact form."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page with hero section, 3–6 value propositions, featured Products/Services previews, and a prominent CTA that navigates to the Contact page. Use shadcn-ui components (cards, buttons, typography helpers) for polished marketing sections. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductsPage.tsx",
+          "operation": "create",
+          "description": "Create the Products page listing at least 3 categories (e.g., Laptops, Desktops, Accessories) with short descriptions and placeholder items presented in responsive cards/grids. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "create",
+          "description": "Create the Services page with at least 4 clearly described services (repairs, upgrades, diagnostics, maintenance) and supporting trust copy. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create the About page with a short company story/mission plus a “Why choose us” section (bullets/metrics) styled consistently. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create the Contact page with contact info (email/phone/address placeholders) and embed the Contact form component from REQ-3. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire newly created pages into the router and ensure navigation links in the layout route to these pages (no orphan pages)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a Contact form UI with validation and success/error submission states.",
+      "acceptanceCriteria": [
+        "Form validates required fields and email format before submission.",
+        "Submit button shows loading state while submitting.",
+        "On success, form clears and shows a success message; on failure, shows an error message."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "create",
+          "description": "Implement the Contact form UI with fields: name (required), email (required), phone (optional), subject (required), message (required). Add client-side validation (required + email format), accessible error messages, loading state on submit, and success/error banners. Use shadcn-ui form inputs, labels, buttons, and alert components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitContactForm.ts",
+          "operation": "create",
+          "description": "Create a React Query mutation hook that calls the backend actor's submitForm capability and maps UI fields into the backend payload (e.g., include subject/phone within the submitted message text if needed). Handle loading/error states for the UI."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Integrate the ContactForm component into the Contact page and ensure success clears the form and provides user feedback. Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add an authenticated Inbox page (Internet Identity) to view stored contact submissions read-only with empty/loading/error states.",
+      "acceptanceCriteria": [
+        "When not logged in, the Inbox page prompts the user to sign in.",
+        "When logged in, the Inbox page displays a list of submissions with timestamp, name, email, subject, and message.",
+        "Inbox gracefully handles empty state and loading/error states."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/InboxPage.tsx",
+          "operation": "create",
+          "description": "Create a read-only Inbox page. If not authenticated (no Internet Identity), show a sign-in prompt and login button; if authenticated, fetch and render submissions with timestamp, name, email, subject, and message, plus empty/loading/error states. Use the authorization component patterns for authenticated UI flows. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmissions.ts",
+          "operation": "create",
+          "description": "Create a React Query hook that calls the backend actor's getSubmissions capability with a reasonable limit and returns loading/error/data states for the Inbox UI."
+        },
+        {
+          "path": "frontend/src/components/auth/LoginButton.tsx",
+          "operation": "create",
+          "description": "Add a reusable Login/Logout button using Internet Identity (useInternetIdentity). On logout, clear cached queries to remove restricted data. Use guidance from the authorization component. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "operation": "create",
+          "description": "Implement a first-login profile setup dialog (ask for user name) using getCallerUserProfile/saveCallerUserProfile and prevent modal flash per authorization component guidance. Use shadcn-ui dialog/form components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/RequireAuth.tsx",
+          "operation": "create",
+          "description": "Create a simple auth gate component for protected pages (Inbox) that renders the sign-in prompt when not authenticated and renders children when authenticated. Use authorization component guidance. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Inbox route and wrap it with RequireAuth (or gate within the Inbox page) so access requires Internet Identity login; ensure header navigation includes an Inbox link."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Add LoginButton placement in the header (or a clear location) and ensure the Inbox nav item is present and responsive. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Define and apply a coherent professional theme (non-blue/non-purple primary) across the site.",
+      "acceptanceCriteria": [
+        "A single consistent theme is applied across pages (buttons, cards, headings, links).",
+        "Color palette does not rely on blue/purple as the primary brand colors.",
+        "Typography and spacing are consistent and readable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles and Tailwind base layer (including CSS variables used by shadcn-ui) and define a cohesive SGS Solutions palette with non-blue/non-purple primary colors (e.g., charcoal + green/orange accents), consistent typography, spacing, and focus styles. Verify shadcn-ui theming usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions as needed to support SGS Solutions brand tokens (colors/radius/shadows/typography) and ensure consistent usage across components."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteLayout.tsx",
+          "operation": "modify",
+          "description": "Apply consistent container widths, vertical rhythm, and section spacing across pages; ensure header/footer styling aligns with the global theme. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add SEO + accessibility essentials: per-page titles/meta descriptions, semantic headings, keyboard navigation, and accessible form labels/errors.",
+      "acceptanceCriteria": [
+        "Each page sets a distinct document title and meta description.",
+        "All form fields have associated labels and accessible error messages.",
+        "Site is usable via keyboard navigation and has sensible focus states.",
+        "Headings use a logical hierarchy (H1 then H2/H3)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/usePageMeta.ts",
+          "operation": "create",
+          "description": "Create a small hook to set document.title and ensure a meta description tag exists/updates per page without adding new dependencies."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Apply semantic heading hierarchy (single H1 for page title/hero) and call usePageMeta with a distinct title and meta description. Ensure keyboard focus order is sensible. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductsPage.tsx",
+          "operation": "modify",
+          "description": "Set page title/meta description via usePageMeta and ensure headings follow H1/H2/H3 structure. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Set page title/meta description via usePageMeta and ensure semantic structure. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Set page title/meta description via usePageMeta and ensure semantic structure. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Set page title/meta description via usePageMeta and ensure semantic structure; ensure contact info is readable and accessible."
+        },
+        {
+          "path": "frontend/src/components/contact/ContactForm.tsx",
+          "operation": "modify",
+          "description": "Ensure each field has an associated label, required markers are accessible, validation errors are announced (aria-describedby/role where appropriate), and keyboard navigation works end-to-end. Use shadcn-ui form components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/InboxPage.tsx",
+          "operation": "modify",
+          "description": "Set page title/meta description via usePageMeta and ensure accessible list rendering, focus states, and keyboard navigability. Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Include generated static brand images under frontend/public/assets/generated and render them in the UI (logo in header, hero visual on Home, service icons).",
+      "acceptanceCriteria": [
+        "Generated images are present in frontend/public/assets/generated and referenced directly by the frontend.",
+        "Header displays the SGS Solutions logo.",
+        "Home hero includes a relevant illustration/visual."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/sgs-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated brand logo image asset at frontend/public/assets/generated/sgs-logo.dim_512x512.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/sgs-hero-illustration.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated hero illustration asset at frontend/public/assets/generated/sgs-hero-illustration.dim_1600x900.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/sgs-service-icons.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated service icons sprite/image asset at frontend/public/assets/generated/sgs-service-icons.dim_512x512.png."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Render the SGS Solutions logo from frontend/public/assets/generated/sgs-logo.dim_512x512.png in the header branding area (with accessible alt text). Use shadcn-ui components where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Render the hero visual from frontend/public/assets/generated/sgs-hero-illustration.dim_1600x900.png within the Home hero section and incorporate frontend/public/assets/generated/sgs-service-icons.dim_512x512.png in the featured services/value props area (with accessible alt text). Use shadcn-ui components. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

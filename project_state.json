@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a website for SGS Solutions, a computer sales and service company.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Modern minimalist logo for “SGS Solutions” in a tech/service style (sgs-logo.dim_512x512.png)\n- Wide hero illustration showing computer repair/sales theme, clean vector style (sgs-hero-illustration.dim_1600x900.png)\n- Set of 4 simple line icons representing service offerings (sgs-service-icons.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-multi-page-company-website-for-sgs-solutions-computer-sales-and-service-with-clear-navigation-and-polished-marketing-content-in-english",
+      "title": "Create a responsive multi-page company website for “SGS Solutions” (computer sales and service) with clear navigation and polished marketing content in English.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-core-pages-and-sections-suitable-for-a-computer-sales-service-company-home-products-services-about-and-contact-pages-home-should-include-a-hero-section-value-propositions-featured-offerings-and-a-call-to-action-to-contact",
+      "title": "Implement core pages and sections suitable for a computer sales & service company: Home, Products, Services, About, and Contact pages. Home should include a hero section, value propositions, featured offerings, and a call-to-action to Contact.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-form-ui-with-validation-name-email-phone-optional-subject-message-and-submit-success-error-states",
+      "title": "Add a Contact form UI with validation (name, email, phone optional, subject, message) and submit success/error states.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-authenticated-inbox-page-in-the-frontend-to-view-stored-contact-submissions-read-only-access-should-require-internet-identity-login",
+      "title": "Add a simple authenticated “Inbox” page in the frontend to view stored contact submissions (read-only). Access should require Internet Identity login.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-apply-one-coherent-visual-theme-for-sgs-solutions-across-the-entire-site-colors-typography-spacing-components-with-a-professional-computer-services-feel-avoid-blue-purple",
+      "title": "Define and apply one coherent visual theme for SGS Solutions across the entire site (colors, typography, spacing, components) with a professional “computer services” feel (avoid blue & purple).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-seo-and-accessibility-essentials-meaningful-page-titles-meta-descriptions-per-page-semantic-headings-keyboard-navigability-and-accessible-form-labels-errors",
+      "title": "Add basic SEO and accessibility essentials: meaningful page titles/meta descriptions per page, semantic headings, keyboard navigability, and accessible form labels/errors.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-static-brand-images-and-illustrations-for-sgs-solutions-logo-simple-marketing-visuals-store-them-under-frontend-public-assets-generated-and-render-them-in-the-ui-e-g-header-logo-and-home-hero",
+      "title": "Generate and include static brand images and illustrations for SGS Solutions (logo + simple marketing visuals), store them under frontend/public/assets/generated, and render them in the UI (e.g., header logo and Home hero).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a company website for SGS Solutions (computer sales and service)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create backend support to store contact form submissions in the canister, and expose methods to create and list submissions (listing should be restricted to authenticated users via Internet Identity).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "SGS Solutions",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
